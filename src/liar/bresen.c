@@ -126,7 +126,7 @@ TESTS:
     return(backp);
 }
 
-
+#if 0 //depriacted?
 long *bresenham2(int xin,int yin,double angle,int imwidth, int imheight, int *ol)
 {
 /**
@@ -239,7 +239,7 @@ TESTS:
 
     return(rp);
 }
-
+#endif
 
 INT4_TYPE *bresenham_dir(int xin,
                          int yin,
