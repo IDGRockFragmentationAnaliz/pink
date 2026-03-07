@@ -10,6 +10,8 @@
 #define LOADTIFF_H
 
 #include <tiffio.h>
+#include <liarp.h>
+#include <liarwrap.h>
 
 int  getTiffType(int pi, int sf, int spp, int bps, pixtype *pixeltype, imgtype *imagetype);
 int  load_tiff(const char *fname,	 /* file name  */
