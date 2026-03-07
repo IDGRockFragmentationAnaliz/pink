@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include "loadtiff.h"
 #include "liarp.h"
 #include "liarwrap.h"
 
