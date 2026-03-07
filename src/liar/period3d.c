@@ -133,7 +133,7 @@ long *periodic3d(int dx, int dy, int dz,
   *ol = nshift+1;
 
   /* allocate mem */
-  p = (INT4_TYPE*)calloc(*ol, sizeof(INT4_TYPE));
+  p = (long *)calloc(*ol, sizeof(long));
   if (p == NULL) {
     LIARerror("periodic3d: Unable to allocate memory for line offsets");
     return(NULL);
