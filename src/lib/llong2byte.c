@@ -167,11 +167,24 @@ struct xvimage * long2byte( struct xvimage * imagelong, int mode, int nbnewval )
       }
       for (i = 0; i < nbval; i++) index[i] = i;
       long2byte_TriRapideStochastique ((int32_t *)index, (int32_t *)histo, 1, nbval-1);
-      newvals = histo; /* reutilisation de la place memoire allouee pour histo */
+      //newvals = histo; /* reutilisation de la place memoire allouee pour histo */
+      /* fix,
+      error: assignment to 'uint32_t *' {aka 'unsigned int *'}
+      from incompatible pointer type 'index_t *'
+      {aka 'long long int *'} [-Wincompatible-pointer-types]
+      newvals = histo; */
+      newvals = (uint32_t *)calloc(nbval, sizeof(uint32_t));
+      if (newvals == NULL)
+      {
+        fprintf(stderr, "malloc failed\n");
+        exit(1);
+      }
+      /* endfix */
       for (i = 0; i < nbval; i++) newvals[i] = 0;
       for (i = 1; i < mcmin(nbval,nbnewval); i++) newvals[index[mcmax((nbval-nbnewval),0)+i]] = i;
       for (x = 0; x < N; x++)
         B[x] = (uint8_t)(newvals[L[x]]);
+      free(newvals);
       free(histo);
       free(index);
       break;
