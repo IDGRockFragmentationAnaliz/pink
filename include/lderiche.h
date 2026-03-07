@@ -39,7 +39,7 @@ extern "C" {
 /* prototype for lderiche.c */
 /* ============== */
 
-extern void lderiche_derichegen(double *x,
+extern void derichegen(double *x,
 		       int32_t M,
 		       int32_t N,
 		       double *y1,

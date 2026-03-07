@@ -90,7 +90,7 @@ le filtre lineaire recursif general de Deriche est defini par :
 #define DIRMAX  31
 
 /* ==================================== */
-void lderiche_derichegen(double *x,               /* image a traiter */
+void derichegen(double *x,               /* image a traiter */
                 int32_t M,                   /* taille ligne */
                 int32_t N,                   /* taille colonne */
                 double *y1,              /* zone temporaire de la taille d'une colonne */
@@ -159,7 +159,7 @@ void lderiche_derichegen(double *x,               /* image a traiter */
       y[m+M*n] = y1[m] + y2[m];
   }
 
-} /* lderiche_derichegen() */
+} /* derichegen() */
 
 /* ==================================== */
 int32_t lderiche_lderiche(struct xvimage *image, double alpha, int32_t function, double l)
@@ -263,9 +263,9 @@ printf("alpha = %g , e_a = %g , e_2a = %g , k = %g\n", alpha, e_a, e_2a, k);
       b1 = b3 = 2 * e_a;
       b2 = b4 = - e_2a;
 
-      lderiche_derichegen(Imd, rs, cs, buf1, buf2, Im1,
+      derichegen(Imd, rs, cs, buf1, buf2, Im1,
                  a1, a2, a3, a4, a5, a6, a7, a8, b1, b2, b3, b4);
-      lderiche_derichegen(Imd, rs, cs, buf1, buf2, Im2,
+      derichegen(Imd, rs, cs, buf1, buf2, Im2,
                  a5, a6, a7, a8, a1, a2, a3, a4, b1, b2, b3, b4);
 
       if (datatype(image) == VFF_TYP_1_BYTE)
@@ -317,9 +317,9 @@ printf("alpha = %g , e_a = %g , e_2a = %g , k = %g\n", alpha, e_a, e_2a, k);
       b1 = b3 = 2 * e_a;
       b2 = b4 = - e_2a;
 
-      lderiche_derichegen(Imd, rs, cs, buf1, buf2, Im1,
+      derichegen(Imd, rs, cs, buf1, buf2, Im1,
                  a1, a2, a3, a4, a5, a6, a7, a8, b1, b2, b3, b4);
-      lderiche_derichegen(Imd, rs, cs, buf1, buf2, Im2,
+      derichegen(Imd, rs, cs, buf1, buf2, Im2,
                  a5, a6, a7, a8, a1, a2, a3, a4, b1, b2, b3, b4);
 
       if (datatype(image) == VFF_TYP_1_BYTE)
@@ -374,9 +374,9 @@ printf("alpha = %g , e_a = %g , e_2a = %g , k = %g\n", alpha, e_a, e_2a, k);
       b1 = b3 = 2 * e_a;
       b2 = b4 = - e_2a;
 
-      lderiche_derichegen(Imd, rs, cs, buf1, buf2, Im1,
+      derichegen(Imd, rs, cs, buf1, buf2, Im1,
                  a1, a2, a3, a4, a5, a6, a7, a8, b1, b2, b3, b4);
-      lderiche_derichegen(Imd, rs, cs, buf1, buf2, Im2,
+      derichegen(Imd, rs, cs, buf1, buf2, Im2,
                  a5, a6, a7, a8, a1, a2, a3, a4, b1, b2, b3, b4);
 
       if (datatype(image) == VFF_TYP_1_BYTE)
@@ -416,9 +416,9 @@ printf("alpha = %g , e_a = %g , e_2a = %g , k = %g\n", alpha, e_a, e_2a, k);
       b1 = b3 = 2 * e_a;
       b2 = b4 = - e_2a;
 
-      lderiche_derichegen(Imd, rs, cs, buf1, buf2, Im1,
+      derichegen(Imd, rs, cs, buf1, buf2, Im1,
                  a1, a2, a3, a4, a5, a6, a7, a8, b1, b2, b3, b4);
-      lderiche_derichegen(Imd, rs, cs, buf1, buf2, Im2,
+      derichegen(Imd, rs, cs, buf1, buf2, Im2,
                  a5, a6, a7, a8, a1, a2, a3, a4, b1, b2, b3, b4);
 
       if (datatype(image) == VFF_TYP_1_BYTE)
@@ -452,7 +452,7 @@ printf("alpha = %g , e_a = %g , e_2a = %g , k = %g\n", alpha, e_a, e_2a, k);
       b1 = b3 = 2 * e_a;
       b2 = b4 = - e_2a;
 
-      lderiche_derichegen(Imd, rs, cs, buf1, buf2, Im1,
+      derichegen(Imd, rs, cs, buf1, buf2, Im1,
                  a1, a2, a3, a4, a5, a6, a7, a8, b1, b2, b3, b4);
 
       if (datatype(image) == VFF_TYP_1_BYTE)
@@ -497,7 +497,7 @@ printf("alpha = %g , e_a = %g , e_2a = %g , k = %g\n", alpha, e_a, e_2a, k);
       b3 = 2 * e_a;
       b4 = - e_2a;
 
-      lderiche_derichegen(Imd, rs, cs, buf1, buf2, Im1,
+      derichegen(Imd, rs, cs, buf1, buf2, Im1,
                  a1, a2, a3, a4, a5, a6, a7, a8, b1, b2, b3, b4);
 
 
@@ -539,7 +539,7 @@ printf("alpha = %g , e_a = %g , e_2a = %g , k = %g\n", alpha, e_a, e_2a, k);
       b1 = 2 * e_a;
       b2 = - e_2a;
 
-      lderiche_derichegen(Imd, rs, cs, buf1, buf2, Im1,
+      derichegen(Imd, rs, cs, buf1, buf2, Im1,
                  a1, a2, a3, a4, a5, a6, a7, a8, b1, b2, b3, b4);
 
 
@@ -646,9 +646,9 @@ printf("beta = %g , e_a = %g , e_2a = %g , k = %g\n", beta, e_a, e_2a, k);
   b3 = 0;
   b4 = 0;
 
-  lderiche_derichegen(Imd, rs, cs, buf1, buf2, Im1,
+  derichegen(Imd, rs, cs, buf1, buf2, Im1,
              a1, a2, a3, a4, a5, a6, a7, a8, b1, b2, b3, b4);
-  lderiche_derichegen(Imd, rs, cs, buf1, buf2, Im2,
+  derichegen(Imd, rs, cs, buf1, buf2, Im2,
              a5, a6, a7, a8, a1, a2, a3, a4, b3, b4, b1, b2);
 
   for (i = 0; i < N; i++)
