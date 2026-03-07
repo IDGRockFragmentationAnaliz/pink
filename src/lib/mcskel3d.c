@@ -389,7 +389,10 @@ void mcskel3d_K3_UnMarkAlphaCarre(struct xvimage *k, index_t f, unsigned char ma
 #define F_NAME "mcskel3d_K3_UnMarkAlphaCarre"
   index_t rs = rowsize(k), cs = colsize(k), ds = depth(k), ps = rs*cs; 
   int32_t x = f%rs, y = (f%ps)/rs, z = f/ps;
-  int32_t tab[26], u, n;
+  // fix for tab
+  index_t tab[26];
+  int32_t u, n;
+
   unsigned char *K = UCHARDATA(k);
   Alphacarre3d(rs, cs, ds, x, y, z, tab, &n);
   for (u = 0; u < n; u++) K[tab[u]] &= ~mask;
@@ -409,7 +412,10 @@ void mcskel3d_K3_MarkPrinc(struct xvimage *k)
   int32_t card, x, y, z;
   index_t rs = rowsize(k), cs = colsize(k), ds = depth(k), ps = rs*cs, i; 
   unsigned char *K = UCHARDATA(k);
-  int32_t tab[26], u, n;
+  // fix for tab
+  index_t tab[26];
+  int32_t u, n;
+
   for (z = 0; z < ds; z++)
   for (y = 0; y < cs; y++)
   for (x = 0; x < rs; x++)
@@ -442,7 +448,10 @@ void mcskel3d_K3_MarkEss(struct xvimage *k)
   index_t i, rs = rowsize(k), cs = colsize(k), ds = depth(k), ps = rs*cs, N = ps*ds;
   unsigned char *K = UCHARDATA(k);
   unsigned char *P;
-  int32_t tab[26], u, n;
+  // fix for tab
+  index_t tab[26];
+  int32_t u, n;
+
   char tablefilename[256];
 
   if (EssTab3 == NULL) 
