@@ -6,7 +6,7 @@ INCLUDE(CheckTypeSize)
 # ------------------------------------
 # -------- The shared library --------
 # ------------------------------------
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.5)
 FILE( GLOB lib_src_c *.c )
 FILE( GLOB lib_src_c_linux linux/*.c ) # these are the files which are specific to linux (for example they use XLib)
 # we should use only one kind of extension for C++ please
