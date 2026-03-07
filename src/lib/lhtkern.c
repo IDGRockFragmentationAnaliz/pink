@@ -362,7 +362,7 @@ int32_t lhtkern(struct xvimage *image, struct xvimage *imagecond, int32_t connex
 } /* lhtkern() */
 
 /* ==================================== */
-int32_t lhtkern_lhtkernu(struct xvimage *image, struct xvimage *imagecond, int32_t connex)
+int32_t lhtkernu(struct xvimage *image, struct xvimage *imagecond, int32_t connex)
 /* ==================================== */
 #undef F_NAME
 #define F_NAME "lhtkernu"
