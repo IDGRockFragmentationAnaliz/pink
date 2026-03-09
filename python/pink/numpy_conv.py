@@ -30,7 +30,7 @@ pink2npdtype  = {
                 'double' :np.dtype('f8')
 	}
 
-np2pinkdtype  = dict((v,k) for k, v in pink2npdtype.iteritems())
+np2pinkdtype = {value: key for key, value in pink2npdtype.items()}
 
 def pink2numpy(image):
     """
