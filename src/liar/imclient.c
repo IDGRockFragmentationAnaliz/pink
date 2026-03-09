@@ -140,7 +140,7 @@ WAS_STATIC  char *sysv_shm_data;
 #endif /* HAVE_SYSV_IPC */
 
 /* POSIX IPC */
-#ifdef HAVE_POSIX_IPC
+#if defined(HAVE_POSIX_IPC) && !defined(WIN32)
 # include <semaphore.h>
 # include <sys/mman.h>
 
@@ -186,7 +186,7 @@ WAS_STATIC const char  *px_resource_name[] = {
 
 #endif /* HAVE_POSIX_IPC */
 
-char  *ipc_base_path[ANSWER_MAX_SIZE];
+char  ipc_base_path[ANSWER_MAX_SIZE];
 
 
 
@@ -886,7 +886,7 @@ int imview_sysv_ipc_wind_down(void)
 #endif /* HAVE_SYSV_IPC */
 
 
-#ifdef HAVE_POSIX_IPC
+#if defined(HAVE_POSIX_IPC) && !defined(WIN32)
 
 static char *imview_px_ipc_name(const char *name)
 {
@@ -1173,11 +1173,11 @@ int imviewlogin(const char *user,        /* user name (default NULL: current use
     }
     
     /* radical solution for now if sysv IPC are not available */
-#if !defined(HAVE_SYSV_IPC) && !defined(HAVE_POSIX_IPC)
+#if !defined(HAVE_SYSV_IPC) && (!defined(HAVE_POSIX_IPC) || defined(WIN32))
     use_shm = SHM_NONE;
 #endif
     
-    
+
     /* get the user name */
     username[0] = '\0'; /* empty user field */
     if ((user == NULL) || (user[0] == '\0')) {

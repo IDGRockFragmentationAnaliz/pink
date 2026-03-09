@@ -68,7 +68,7 @@ struct timezone {
 };
 #endif /* HP */
 
-#ifndef UNIXIO
+#if !defined(UNIXIO) && !defined(WIN32)
 #  include <time.h>
 
   struct timezone
