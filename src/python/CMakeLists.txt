@@ -4,7 +4,7 @@
 # ------------------------------------
 # -------- The Python front-end ------
 # ------------------------------------ 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.5)
 SET( py_documentation ${CMAKE_SOURCE_DIR}/include/python_doc.h )
 
 FILE( GLOB py_src_cpp *.cpp )
@@ -90,7 +90,7 @@ add_custom_command( OUTPUT ${py_documentation}
 #                     COMMAND ${PYTHON_DOCUMENTATION_EXE} ${CMAKE_SOURCE_DIR}/python_documenter.py ${CMAKE_SOURCE_DIR}/src/com ${CMAKE_SOURCE_DIR}/include/python_doc.h
 #                     )
 
-add_dependencies( cpp_pink ${py_documentation} )
+#add_dependencies( cpp_pink ${py_documentation} )
 
 ### **********************************************************************************************
 ### **********************************************************************************************
@@ -140,8 +140,8 @@ add_custom_command( TARGET cpp_pink POST_BUILD
 		    )
 
 elseif (THIS_IS_MSVC)
-FILE( TO_NATIVE_PATH ${CMAKE_BINARY_DIR}/python/${CMAKE_BUILD_TYPE}/cpp_pink.dll CPP_PINK_DLL )
-FILE( TO_NATIVE_PATH ${CMAKE_BINARY_DIR}/python/libcpp_pink.pyd LIBCPP_PINK_PYD )
+	FILE(TO_NATIVE_PATH ${CMAKE_BINARY_DIR}/python/libcpp_pink.dll CPP_PINK_DLL)
+	FILE(TO_NATIVE_PATH ${CMAKE_BINARY_DIR}/python/libcpp_pink.pyd LIBCPP_PINK_PYD)
 
 add_custom_command( TARGET cpp_pink POST_BUILD 
 		    COMMAND xcopy /s /f /y \"${CMAKE_SOURCE_DIR}/python\" \"${CMAKE_BINARY_DIR}/python\"
@@ -179,8 +179,8 @@ else (THIS_IS_MSVC) # on unix like system
 endif (THIS_IS_MSVC)
 
 
-
-
+target_link_libraries(cpp_pink ws2_32)
+add_definitions(-DBOOST_TIMER_ENABLE_DEPRECATED)
 
 
 
