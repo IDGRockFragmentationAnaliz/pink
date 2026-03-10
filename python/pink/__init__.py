@@ -16,7 +16,7 @@ from .exceptions import python_component_missing
 from .isize import iSize
 from . import cpp # the functions imported directly from c/c++
 
-from windowing import windowing
+from .windowing import windowing
 
 #### end of code concerning Tkinter dialogs
 
