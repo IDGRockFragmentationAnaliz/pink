@@ -34,6 +34,7 @@
 #include "lfiltreordre.h"
 #include "lattribheight.h"
 #include "llabelextrema.h"
+#include <lskelpar.h>
 
 
 #include <boost/preprocessor/slot/counter.hpp>
@@ -559,6 +560,31 @@ namespace morpho
     doc__dilatball__c__
     );
 # include BOOST_PP_UPDATE_COUNTER()
+
+  UI_WRAP_FUNCTION(
+    "dilatball_test",
+    ldilatball,
+    (arg("image"), arg("radius"), arg("mode")=0),
+    doc__dilatball__c__
+    );
+# include BOOST_PP_UPDATE_COUNTER()
+
+  UI_WRAP_FUNCTION(
+    "lhthinpar_asymmetric_test",
+    lhthinpar_asymmetric,
+    (arg("image"), arg("nsteps")=10),
+    doc__dilatball__c__
+    );
+# include BOOST_PP_UPDATE_COUNTER()
+
+  UI_WRAP_FUNCTION(
+  "lhthinpar_test",
+  lhthinpar,
+  (arg("image"), arg("nsteps")=10),
+  doc__dilatball__c__
+  );
+# include BOOST_PP_UPDATE_COUNTER()
+
 
   UI_WRAP_FUNCTION(
     "erosball",
