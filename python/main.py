@@ -22,21 +22,28 @@ import numpy as np
 
 
 def main():
-    image_path = Path("./test/cercle11.pgm")
+    # image_path = Path("./test/cercle11.pgm")
+    # image_path = Path("./test/rectangle_rips.pgm")
+    image_path = Path("test/gel.pgm")
+    # image_path = Path("test/square_hole.pgm")
+
+
     print(str(image_path))
     image = pink.cpp.readimage(str(image_path))
-    print(image.get_pixels())
-    #image = numpy_conv.pink2numpy(image)
-    pink.cpp.print_image(image)
-    image = pink.cpp.dilatball(image, 5, 3)
-    pink.cpp.print_image(image)
+    print(image)
+    #exit()
+    # image_numpy = numpy_conv.pink2numpy(image)
+    # #image = pink.cpp.dilatball_test(image, 1)
+    # plt.imshow(image_numpy)
+    # plt.show()
 
-    #plt.imshow(pink.numpy_conv.pink2numpy(image), cmap=mpl.cm.gray, interpolation='none')
+    image2 = pink.cpp.lhthinpar_test(image, 10000)
 
-    #pink.cpp.exp(5)
+    image_numpy = numpy_conv.pink2numpy(image2)
+    print(image_numpy)
 
-   # kernel = pink.cpp.readimage(IMAGES + '/2dbyte/gray/g2fish1.pgm')
-    #result = pink.cpp.dilation(image,kernel)
+    plt.imshow(image_numpy)
+    plt.show()
 
 
 if "__main__" == __name__:
