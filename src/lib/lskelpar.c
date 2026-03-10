@@ -42,7 +42,7 @@ knowledge of the CeCILL license and that you accept its terms.
    - Couprie curviligne avec reconstruction
    - Rutovitz
    - Zhang & Wang
-   - Han & La & Rhee (peu intéressant)
+   - Han & La & Rhee (peu intï¿½ressant)
    - Guo & Hall
    - Chin & Wan & Stover & Iverson
    - Jang & Chin
@@ -148,7 +148,7 @@ knowledge of the CeCILL license and that you accept its terms.
      m1 : match   A 2 B   avec origine = (1,0) et [au moins un des A et au moins un des B non nuls]
                   A 2 B   ou [A et B tous nuls] (+ rotation 90)
 
-		  (preuve équivalence par programme : Squel2D/ronse.c)
+		  (preuve ï¿½quivalence par programme : Squel2D/ronse.c)
 
      m2 : match   0 0 0 0   avec origine = (1,2) et x = don't care
                   0 2 2 0   (+ rotations 90, 180, 270)
@@ -182,9 +182,9 @@ knowledge of the CeCILL license and that you accept its terms.
    Michel Couprie - juillet 2001
    Benjamin Raynal 2010 - algos Nemeth & Palagyi
    Nivando Bezerra 2011 - lhthinpar* : skel en niveaux de gris
-   Michel Couprie 2011 - lskelACK2b : Squelette asymétrique curviligne
+   Michel Couprie 2011 - lskelACK2b : Squelette asymï¿½trique curviligne
              #ifdef NOT_FINISHED
-   Michel Couprie 2012 - lskelCK2 : Squelette symétrique curviligne basé sur les isthmes 1D	     
+   Michel Couprie 2012 - lskelCK2 : Squelette symï¿½trique curviligne basï¿½ sur les isthmes 1D	     
 */
 
 #include <stdio.h>
@@ -251,7 +251,7 @@ static void extract_vois(
 		3	2	1
 		4	p	0
 		5	6	7
-  le point p ne doit pas être un point de bord de l'image
+  le point p ne doit pas ï¿½tre un point de bord de l'image
 */
 /* ==================================== */
 {
@@ -291,7 +291,7 @@ static void print_vois(uint8_t *vois)
 static void rotate45_vois(uint8_t *vois)
 /*
    effectue une rotation du voisinage "vois" de 45 degres dans le sens
-   trigonométrique
+   trigonomï¿½trique
 */
 /* ==================================== */
 {
@@ -305,7 +305,7 @@ static void rotate45_vois(uint8_t *vois)
 static void rotate90_vois(uint8_t *vois)
 /*
    effectue une rotation du voisinage "vois" de 90 degres dans le sens
-   trigonométrique
+   trigonomï¿½trique
 */
 /* ==================================== */
 {
@@ -329,7 +329,7 @@ static int32_t extract_vois2(
 		8   X   p   X   0
 		9   X   X   X   15
 		10  11  12  13  14
-  le point p doit être à une distance minimale de 2 du bord de l'image
+  le point p doit ï¿½tre ï¿½ une distance minimale de 2 du bord de l'image
 */
 /* ==================================== */
 {
@@ -369,7 +369,7 @@ static int32_t extract_vois2(
 static void rotate90_vois2(uint8_t *vois)
 /*
    effectue une rotation du voisinage d'ordre 2 "vois" de 90 degres dans le sens
-   trigonométrique
+   trigonomï¿½trique
 */
 /* ==================================== */
 {
@@ -437,7 +437,7 @@ static int32_t pav_match3(uint8_t *F, int32_t x, int32_t rs, int32_t N)
 /*
   A A C   avec origine = (1,1) et au moins un des A et au moins un des B
   0 2 2   et au moins un des C non nuls - de plus si les deux C sont non
-  B B C   nuls, alors les pixels A et B peuvent être quelconques
+  B B C   nuls, alors les pixels A et B peuvent ï¿½tre quelconques
  */
 {
   int32_t i;
@@ -603,7 +603,7 @@ int32_t lskelpavlidis1(struct xvimage *image,
 /* ==================================== */
 // T. Pavlidis : "A flexible parallel thinning algorithm"
 // see also T. Pavlidis : "An asynchronous thinning algorithm - CGIP 1982"
-// Une étape - un seul point testé
+// Une ï¿½tape - un seul point testï¿½
 #undef F_NAME
 #define F_NAME "lskelpavlidis1"
 {
@@ -723,7 +723,7 @@ int32_t lskeleckhardt(struct xvimage *image,
 /* ==================================== */
 static int32_t crossing_nb(uint8_t *F, int32_t x, int32_t rs, int32_t N)
 /* ==================================== */
-// retourne le nombre de transitions 1 -> 0 dans la liste ordonnée et cyclique des voisins
+// retourne le nombre de transitions 1 -> 0 dans la liste ordonnï¿½e et cyclique des voisins
 {
   int32_t i, n = 0;
   uint8_t v[8];
@@ -742,7 +742,7 @@ static int32_t rutovitz_match(uint8_t *F, int32_t x, int32_t rs, int32_t N)
   uint8_t v[8];
   if (!F[x]) return 0;
   n = nbvois8(F, x, rs, N);
-  //  if ((n < 2) || (n > 6)) return 0; // cond. donnée par Zhang et Wang
+  //  if ((n < 2) || (n > 6)) return 0; // cond. donnï¿½e par Zhang et Wang
   if (n < 2) return 0;
   if (crossing_nb(F, x, rs, N) != 1) return 0;
   extract_vois(F, x, rs, N, v);
@@ -2309,7 +2309,7 @@ int32_t lskeljangrec(struct xvimage *image,
   int32_t cs = colsize(image);     /* taille colonne */
   int32_t N = rs * cs;             /* taille image */
   uint8_t *F = UCHARDATA(image);      /* l'image de depart */
-  uint8_t *I;            /* l'image d'inhibition (axe médian) */
+  uint8_t *I;            /* l'image d'inhibition (axe mï¿½dian) */
   struct xvimage *tmp = copyimage(image);
   uint8_t *T = UCHARDATA(tmp);
   int32_t step, nonstab;
@@ -2883,7 +2883,7 @@ int32_t lskelhall(struct xvimage *image,
 /* ==================================== */
 // described in Hall : "Fast parallel thinning algorithms: parallel speed and connectivity preservation"
 // variante 1 : Holt et al.
-// variante 2 : variante Hall pour "mieux" préserver les diagonales (?)
+// variante 2 : variante Hall pour "mieux" prï¿½server les diagonales (?)
 #undef F_NAME
 #define F_NAME "lskelhall"
 {
@@ -4000,7 +4000,7 @@ int32_t lskelNK2(struct xvimage *image,
 	      struct xvimage *inhibit)
 /* ==================================== */
 // algo asymetrique - ultime - minimal - avec contrainte axe median
-// ATTENTION : les résultats sont incorrects si la contrainte n'est pas l'AM
+// ATTENTION : les rï¿½sultats sont incorrects si la contrainte n'est pas l'AM
 #undef F_NAME
 #define F_NAME "lskelNK2"
 {
@@ -4243,8 +4243,8 @@ int32_t lskelACK2b(struct xvimage *image,
 	     struct xvimage *inhibit)
 /* ==================================== */
 /*
-Squelette asymétrique curviligne
-Algo ACK2b données: S (image), I (inhibit), n (n_steps), p (isthmus_persistence)
+Squelette asymï¿½trique curviligne
+Algo ACK2b donnï¿½es: S (image), I (inhibit), n (n_steps), p (isthmus_persistence)
 Pour tout x de S faire T[x] := PERS_INIT_VAL
 Pour i := 0; i < n; i++
   C := points de courbe de S
@@ -4465,9 +4465,9 @@ int32_t lskelbertrand_sym(struct xvimage *image,
 	      struct xvimage *inhibit)
 /* ==================================== */
 /*
-Algo CPSR1 données: S
+Algo CPSR1 donnï¿½es: S
 T := S
-Répéter jusqu'à stabilité
+Rï¿½pï¿½ter jusqu'ï¿½ stabilitï¿½
      T := T \ominus \Gamma_4
      P := pixels simples pour S et 4-voisins d'un point de T
      R := pixels de P qui s'apparient avec C2
@@ -4657,8 +4657,8 @@ int32_t lskelMK2(struct xvimage *image,
 	     struct xvimage *inhibit)
 /* ==================================== */
 /*
-Algo MK2 données: S, I
-Répéter jusqu'à stabilité
+Algo MK2 donnï¿½es: S, I
+Rï¿½pï¿½ter jusqu'ï¿½ stabilitï¿½
   P := pixels simples pour S
   R := pixels de P qui s'apparient avec le masque C (bertrand_match3)
   T :=  [S  \  P] \cup  R \cup  I
@@ -4768,14 +4768,14 @@ int32_t lskelMK2b(struct xvimage *image,
 	     struct xvimage *inhibit)
 /* ==================================== */
 /*
-Algo MK2b données: S, I
-Répéter jusqu'à stabilité
+Algo MK2b donnï¿½es: S, I
+Rï¿½pï¿½ter jusqu'ï¿½ stabilitï¿½
   P := pixels simples pour S et pas dans I
-  R := pixels de P qui vérifient bertrand_match3b
+  R := pixels de P qui vï¿½rifient bertrand_match3b
   P := P \ R
-  R := pixels de P qui vérifient bertrand_match4  
+  R := pixels de P qui vï¿½rifient bertrand_match4  
   S = S \ [P \ R]
-(l'ensemble P est représenté par la valeur 2 dans l'image S)
+(l'ensemble P est reprï¿½sentï¿½ par la valeur 2 dans l'image S)
 */
 #undef F_NAME
 #define F_NAME "lskelMK2b"
@@ -4871,10 +4871,10 @@ int32_t lskelAK2(struct xvimage *image,
 	     struct xvimage *inhibit)
 /* ==================================== */
 /*
-Amincissement symétrique avec inclusion de l'axe médian
-Algo AK2 données: S
+Amincissement symï¿½trique avec inclusion de l'axe mï¿½dian
+Algo AK2 donnï¿½es: S
 K := \emptyset ; T := S
-Répéter jusqu'à stabilité
+Rï¿½pï¿½ter jusqu'ï¿½ stabilitï¿½
   E := T \ominus \Gamma_4
   D := T \ [E \oplus \Gamma_4]
   T := E
@@ -4953,7 +4953,7 @@ Répéter jusqu'à stabilité
     for (i = 0; i < N; i++)
       if (D[i]) K[i] = 1;
 
-    //  P := pixels de S \ K simples pour S (P est représenté par les points à 2 dans S)
+    //  P := pixels de S \ K simples pour S (P est reprï¿½sentï¿½ par les points ï¿½ 2 dans S)
     for (i = 0; i < N; i++)
       if (S[i] && !K[i] && simple8(S, i, rs, N))
 	S[i] = 2;
@@ -4972,7 +4972,7 @@ Répéter jusqu'à stabilité
       if ((S[i] == 1) || R[i])
 	D[i] = 1;
 
-    for (i = 0; i < N; i++) // pour  tester la stabilité
+    for (i = 0; i < N; i++) // pour  tester la stabilitï¿½
       if (S[i] && !D[i])
       {
 	S[i] = 0;
@@ -5787,6 +5787,15 @@ void match_C_asymmetric(uint8_t* F, uint8_t* D, uint8_t* A, uint32_t rs, uint32_
 void getNeighborhood(uint8_t *F, uint32_t rs, uint32_t N, uint32_t p, uint8_t k, uint8_t * neighborhood)
 /* neighborhood is a 25 (5x5) elements array */
 {
+  uint32_t x = p % rs;
+  uint32_t y = p / rs;
+  uint32_t cs = N / rs;
+  if (!((x > 1) && (x < rs - 2) && (y > 1) && (y < cs - 2)))
+  {
+    for (int i = 0; i < 25; i++) neighborhood[i] = 0;
+    return;
+  }
+
   neighborhood[ 1] = F[NNW(p,rs)]>=k ? IN_SET : 0;  //nnw
   neighborhood[ 2] = F[NN(p,rs) ]>=k ? IN_SET : 0;  //nn 
   neighborhood[ 3] = F[NNE(p,rs)]>=k ? IN_SET : 0;  //nne
@@ -6376,8 +6385,8 @@ int32_t lskelCK2(struct xvimage *image,
 		 struct xvimage *inhibit)
 /* ==================================== */
 /*
-Squelette symétrique curviligne basé sur les isthmes 1D
-Algo CK2 données: S (image), I (inhibit), n (n_steps)
+Squelette symï¿½trique curviligne basï¿½ sur les isthmes 1D
+Algo CK2 donnï¿½es: S (image), I (inhibit), n (n_steps)
 Pour i := 0; i < n; i++
   C := points de courbe (isthmes) de S
   I := I \cup C
@@ -6500,7 +6509,7 @@ Attention : l'objet ne doit pas toucher le bord de l'image
 int32_t lskelCK2_pers_old(struct xvimage *image, 
 			  struct xvimage *persistence)
 /* ==================================== */
-// calcule la fonction persistence de la méthode CK2
+// calcule la fonction persistence de la mï¿½thode CK2
 // VERSION SANS CONTROLE TOPOLOGIQUE - OBSOLETE
 #undef F_NAME
 #define F_NAME "lskelCK2_pers_old"
@@ -6516,7 +6525,7 @@ int32_t lskelCK2_pers_old(struct xvimage *image,
   uint8_t *T = UCHARDATA(tmp);
   int32_t step, nonstab, nsteps;
   int32_t m1, m2, m3, m4, m5, m6;
-  float *P = FLOATDATA(persistence); /* résultat */
+  float *P = FLOATDATA(persistence); /* rï¿½sultat */
 
   inhibit = copyimage(image); 
   razimage(inhibit);
@@ -6609,7 +6618,7 @@ static int32_t clique0_match(uint8_t *F, uint8_t *Y, int32_t x, int32_t rs, int3
   4 . 0
   5 6 7
 
-A B   origine C (forcément dans F et pas dans Y)
+A B   origine C (forcï¿½ment dans F et pas dans Y)
 C D   au moins AD ou BC dans F
       tous les pts dans F sont hors de Y
 
@@ -6643,7 +6652,7 @@ static int32_t clique1_match(uint8_t *F, uint8_t *Y, int32_t x, int32_t rs, int3
   5 6 7
 
 A A   avec x : dans F mais pas dans Y
-x x   origine : premier x (dans F mais pas dans Y, déjà testé)
+x x   origine : premier x (dans F mais pas dans Y, dï¿½jï¿½ testï¿½)
 B B   (+ rotation 90)
 
   1-critique : au moins un des A et au moins un des B non nuls
@@ -6745,9 +6754,9 @@ int32_t lskelCK2_pers(struct xvimage *image,
   /* ATTENTION : PAS TESTE */
   /* ATTENTION : PAS TESTE */
   /* ATTENTION : PAS TESTE */
-/* Hiérarchie de squelettes basées sur la persistence des isthmes 1D - version symétrique
+/* Hiï¿½rarchie de squelettes basï¿½es sur la persistence des isthmes 1D - version symï¿½trique
  
-   // ETAPE 1 : calcul des persistences et du squelette à persistence 0
+   // ETAPE 1 : calcul des persistences et du squelette ï¿½ persistence 0
    step = 0;
    foreach x in X do P(x) = 0;
    repeat
@@ -6760,7 +6769,7 @@ int32_t lskelCK2_pers(struct xvimage *image,
    foreach x in X do P(x) = +infty
    X = {x such that P(x) > 0}
 
-   // ETAPE 2 : contrôle topologique sur toutes les coupes de la fonction P
+   // ETAPE 2 : contrï¿½le topologique sur toutes les coupes de la fonction P
    foreach x in X do InsertQueue(Q,x,P(x));
    repeat
      lambda = MinValQueue(Q);
@@ -6796,7 +6805,7 @@ int32_t lskelCK2_pers(struct xvimage *image,
   uint8_t *Z = UCHARDATA(Zimage);
   uint8_t *K = UCHARDATA(Kimage);
   int32_t step, ndel, nsteps;
-  float *P = FLOATDATA(persistence); /* résultat */
+  float *P = FLOATDATA(persistence); /* rï¿½sultat */
   Rbt * Q;
   index_t taillemaxrbt;
 
@@ -6908,8 +6917,8 @@ int32_t lskelCK2p(struct xvimage *image,
 	     struct xvimage *inhibit)
 /* ==================================== */
 /*
-Squelette symétrique curviligne
-Algo CK2p données: S (image), I (inhibit), n (n_steps), p (isthmus_persistence)
+Squelette symï¿½trique curviligne
+Algo CK2p donnï¿½es: S (image), I (inhibit), n (n_steps), p (isthmus_persistence)
 Pour tout x de S faire T[x] := PERS_INIT_VAL
 i := 0 
 Repeat
@@ -7034,7 +7043,7 @@ Attention : l'objet ne doit pas toucher le bord de l'image
       {
 	SET_INHIBIT(I[i]); 
 #ifdef DEBUG_SKEL_CK3P
-	printf("point %d (%d %d %d) ajout à K\n", i, i % rs, (i % ps) / rs,  i / ps);
+	printf("point %d (%d %d %d) ajout ï¿½ K\n", i, i % rs, (i % ps) / rs,  i / ps);
 #endif	
       }
       if (IS_INHIBIT(I[i])) UNSET_SIMPLE(S[i]);
