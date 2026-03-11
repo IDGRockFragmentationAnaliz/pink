@@ -136,6 +136,14 @@ namespace sept
 # include BOOST_PP_UPDATE_COUNTER()
 
   UI_WRAP_FUNCTION(
+  "crestrestoration_nocond",
+  lcrestrestoration_nocond,
+  (arg("image"), arg("nitermax"), arg("connex")),
+  doc__crestrestoration__c__
+  )
+# include BOOST_PP_UPDATE_COUNTER()
+
+  UI_WRAP_FUNCTION(
     "despics2d",
     ldespics,
     (arg("image"), arg("mask"), arg("connexmin")),

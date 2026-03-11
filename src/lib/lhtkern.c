@@ -3413,6 +3413,14 @@ do /* repetition de toute la procedure jusqu'a stabilite */
 } /* lcrestrestoration() */
 
 /* ==================================== */
+int32_t lcrestrestoration_nocond(struct xvimage *image, int32_t nitermax, int32_t connex)
+/* ==================================== */
+{
+  return lcrestrestoration(image, NULL, nitermax, connex);
+}
+
+
+/* ==================================== */
 int32_t lptextensible(struct xvimage *image, struct xvimage *imcond, int32_t connex)
 /* ==================================== */
 #undef F_NAME

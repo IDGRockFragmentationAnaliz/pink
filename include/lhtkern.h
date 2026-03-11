@@ -139,6 +139,12 @@ extern int32_t lcrestrestoration(
         int32_t connex
 );
 
+extern int32_t lcrestrestoration_nocond(
+        struct xvimage *image,
+        int32_t nitermax,
+        int32_t connex
+        );
+
 extern int32_t lptextensible(
         struct xvimage *image, 
         struct xvimage *imcond, 
