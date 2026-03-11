@@ -40,7 +40,7 @@ extern "C" {
 /* ============== */
 
 // this is a workaround, see the implementation
-extern int32_t c(
+extern int32_t llambdakern_short(
   struct xvimage *image, 
   int32_t connex,
   int32_t lambda);  
