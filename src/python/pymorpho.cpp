@@ -62,6 +62,23 @@ namespace morpho
 # include BOOST_PP_UPDATE_COUNTER()
 
   UI_WRAP_FUNCTION(
+    "llambdathin",
+    llambdathin_nocond,
+    ( arg("image"), arg("connexity"), arg("lambda") ),
+    doc__lambdaskel__c__
+    );
+# include BOOST_PP_UPDATE_COUNTER()
+
+  UI_WRAP_FUNCTION(
+    "llambdathick",
+    llambdathick_nocond,
+    ( arg("image"), arg("connexity"), arg("lambda") ),
+    doc__lambdaskel__c__
+    );
+# include BOOST_PP_UPDATE_COUNTER()
+
+
+  UI_WRAP_FUNCTION(
     "rankfilter",
     lfiltreordre,
     ( arg("image"), arg("structuring element"), arg("center_x"), arg("center_y"), arg("r") ),
