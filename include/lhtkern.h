@@ -152,8 +152,14 @@ extern int32_t lptextensible(
 );
 
 extern int32_t ldynrecons(struct xvimage *image, struct xvimage *imagecond, int32_t connex);
-  
-  
+
+extern int32_t lcrestsegment(
+        struct xvimage *image,
+        int32_t connex,
+        int32_t nitermax,
+        int32_t base,
+        int32_t incr);
+
 #ifdef __cplusplus
 }
 #endif

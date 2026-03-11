@@ -15,7 +15,7 @@
 
 #include "ldist.h"
 #include "lcrop.h"
-#include "lhtkern.h"
+#include <lhtkern.h>
 #include "lmedialaxis.h"
 #include "lbarycentre.h"
 #include "l2dcollapse.h"
@@ -136,11 +136,19 @@ namespace sept
 # include BOOST_PP_UPDATE_COUNTER()
 
   UI_WRAP_FUNCTION(
-  "crestrestoration",
-  lcrestrestoration_nocond,
-  (arg("image"), arg("nitermax"), arg("connex")),
-  doc__crestrestoration__c__
-  )
+    "crestrestoration",
+    lcrestrestoration_nocond,
+    (arg("image"), arg("nitermax"), arg("connex")),
+    doc__crestrestoration__c__
+    )
+# include BOOST_PP_UPDATE_COUNTER()
+
+  UI_WRAP_FUNCTION(
+    "lcrestsegment",
+    lcrestsegment,
+    (arg("image"), arg("imagecond"), arg("nitermax"), arg("connex"), arg("connex2")),
+    doc__crestrestoration__c__
+    )
 # include BOOST_PP_UPDATE_COUNTER()
 
   UI_WRAP_FUNCTION(
