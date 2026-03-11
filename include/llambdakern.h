@@ -40,7 +40,7 @@ extern "C" {
 /* ============== */
 
 // this is a workaround, see the implementation
-extern int32_t llambdakern_short(
+extern int32_t c(
   struct xvimage *image, 
   int32_t connex,
   int32_t lambda);  
@@ -51,12 +51,24 @@ extern int32_t llambdakern(
   int32_t connex,
   int32_t lambda);
 
+ extern int32_t llambdathin_nocond(
+    struct xvimage *image,
+    int32_t connex,
+    int32_t lambda);
+
+
 extern int32_t llambdathin(
   struct xvimage *image,
   struct xvimage *imagecond,
   int32_t nitermax,
   int32_t connex,
   int32_t lambda);
+
+extern int32_t llambdathick_nocond(
+  struct xvimage *image,
+  int32_t connex,
+  int32_t lambda);
+
 
 extern int32_t llambdathick(
   struct xvimage *image,

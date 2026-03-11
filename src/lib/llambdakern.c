@@ -570,6 +570,16 @@ int32_t llambdathin(
 } /* llambdathin() */
 
 /* ==================================== */
+int32_t llambdathin_nocond(
+  struct xvimage *image,
+  int32_t connex,
+  int32_t lambda)
+/* ==================================== */
+{
+  return llambdathin(image, NULL, -1, connex, lambda);
+}
+
+/* ==================================== */
 int32_t llambdathick(
   struct xvimage *image,
   struct xvimage *imagecond,
@@ -816,6 +826,15 @@ int32_t llambdathick(
   LifoTermine(LIFO2);
   return(1);
 } /* llambdathick() */
+
+
+int32_t llambdathick_nocond(
+  struct xvimage *image,
+  int32_t connex,
+  int32_t lambda)
+{
+  return llambdathick(image, NULL,-1, connex, lambda);
+}
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
