@@ -2070,10 +2070,14 @@ int32_t typetopo8(  /* types topologiques avec la 8-connexite pour les minima */
   index_t N)                       /* taille image */
 /* ==================================== */
 {
+	//fprintf(stderr, "puk puk1\n");
 	int32_t t8mm,t8m,t4p,t4pp;
 
         if ((p%rs==rs-1) || (p<rs) || (p%rs==0) || (p>=N-rs)) /* point de bord */
-                return UNDEFINED;
+        {
+        	//fprintf(stderr, "undef\n");
+        	return UNDEFINED;
+        }
 
         nbtopo2(img, p, rs, N, &t8mm, &t8m, &t4p, &t4pp);
 
@@ -3531,7 +3535,7 @@ int32_t hseparant4(  /* teste si un point est h-separant - minima 4-connexes
       nbtopoh(img, p, img[q], rs, N, &t4mm, &t4m, &t8p, &t8pp);
       if (t4mm >= 2) return 1;
     }
-  }	
+  }
   return 0;
 } /* hseparant4() */
 
