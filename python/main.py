@@ -35,18 +35,10 @@ def main():
     image = pink.cpp.lhthinpar_test(image, 10000)
     image = pink.cpp.lhthinpar_asymmetric_test(image, -1)
     image = pink.cpp.crestrestoration(image, -1, 4)
-
-    #image_numpy_skel1 = numpy_conv.pink2numpy(image).copy()
-
-    # image = pink.cpp.lambdaskel(image, 4, 100)
+    image = pink.cpp.lambdaskel(image, 4, 20)
     image_numpy_skel1 = numpy_conv.pink2numpy(image).copy()
-
-    #image = pink.cpp.segmentlines(image, 4, 100,255)
-
+    image =  pink.cpp.lcrestsegment(image, 4, 1000, 0, 1)
     image_numpy_skel2 = numpy_conv.pink2numpy(image).copy()
-    image_numpy = image_numpy_skel2.copy()
-    wells = Matcher(image_numpy)
-    wells.run()
 
 
     fig = plt.figure(figsize=(12, 6))
@@ -64,7 +56,7 @@ def main():
     ax2.sharey(ax1)
 
     ax3 = fig.add_subplot(1, 3, 3)
-    ax3.imshow(image_numpy)
+    ax3.imshow(image_numpy_skel2)
     ax3.set_title('Стало')
     ax3.axis('off')
     ax3.sharex(ax1)
