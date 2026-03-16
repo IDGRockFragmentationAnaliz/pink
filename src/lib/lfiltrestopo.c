@@ -148,6 +148,11 @@ int32_t ldespics(struct xvimage * image, struct xvimage * mask, int32_t connexmi
   return 1;
 } /* ldespics() */
 
+int32_t ldespics_nomask(struct xvimage * image, int32_t connexmin)
+{
+  return ldespics(image, NULL, connexmin);
+}
+
 /* ==================================== */
 int32_t ldespuits(struct xvimage * image, struct xvimage * mask, int32_t connexmin)
 /* ==================================== */
@@ -209,6 +214,13 @@ int32_t ldespuits(struct xvimage * image, struct xvimage * mask, int32_t connexm
   }
   return 1;
 } /* ldespuits() */
+
+int32_t ldespuits_nomask(struct xvimage * image, int32_t connexmin)
+{
+	fprintf(stderr, "ldespuits_nomask enter\n");
+ 	return ldespuits(image, NULL, connexmin);
+}
+
 
 /* ==================================== */
 int32_t ldespics3d(struct xvimage * image, struct xvimage * mask, int32_t connexmin)

@@ -152,9 +152,18 @@ namespace sept
 # include BOOST_PP_UPDATE_COUNTER()
 
   UI_WRAP_FUNCTION(
-    "despics2d",
+    "despics",
     ldespics,
     (arg("image"), arg("mask"), arg("connexmin")),
+    doc__despics__c__
+    )
+# include BOOST_PP_UPDATE_COUNTER()
+
+
+  UI_WRAP_FUNCTION(
+    "despics",
+    ldespics_nomask,
+    (arg("image"), arg("connexmin")),
     doc__despics__c__
     )
 # include BOOST_PP_UPDATE_COUNTER()
@@ -171,6 +180,15 @@ namespace sept
     "despuits",
     ldespuits,
     (arg("image"), arg("mask"), arg("connexmin")),
+    doc__despuits__c__
+    )
+# include BOOST_PP_UPDATE_COUNTER()
+
+
+  UI_WRAP_FUNCTION(
+    "despuits",
+    ldespuits_nomask,
+    (arg("image"), arg("connexmin")),
     doc__despuits__c__
     )
 # include BOOST_PP_UPDATE_COUNTER()

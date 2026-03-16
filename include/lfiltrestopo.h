@@ -36,7 +36,9 @@ knowledge of the CeCILL license and that you accept its terms.
 extern "C" {
 #endif
 extern int32_t ldespics(struct xvimage * image, struct xvimage * mask, int32_t connexmin);
+extern int32_t ldespics_nomask(struct xvimage * image, int32_t connexmin);
 extern int32_t ldespuits(struct xvimage * image, struct xvimage * mask, int32_t connexmin);
+extern int32_t ldespuits_nomask(struct xvimage * image, int32_t connexmin);
 extern int32_t ldespics3d(struct xvimage * image, struct xvimage * mask, int32_t connexmin);
 extern int32_t ldespuits3d(struct xvimage * image, struct xvimage * mask, int32_t connexmin);
 extern int32_t ltaf(struct xvimage * image, int32_t connexmin, int32_t rayon);
